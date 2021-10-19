@@ -17,7 +17,7 @@ func (c *UserUserCommander) Delete(inputMessage *tgbotapi.Message) {
 		return
 	}
 
-	result, err := (*c.userService).Remove(idx)
+	result, err := c.userService.Remove(idx)
 	if err != nil {
 		log.Printf("fail to delete product with idx %d: %v", idx, err)
 		return

@@ -20,14 +20,14 @@ type UserCommander interface {
 
 type UserUserCommander struct {
 	bot         *tgbotapi.BotAPI
-	userService *user.UserService
+	userService	user.UserService
 }
 
 func NewUserUserCommander(bot *tgbotapi.BotAPI) *UserUserCommander {
 	userService := user.NewDummyUserService()
 	return &UserUserCommander{
 		bot:         bot,
-		userService: &userService,
+		userService: userService,
 	}
 }
 

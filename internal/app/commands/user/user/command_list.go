@@ -11,12 +11,12 @@ import (
 )
 
 const (
-	CURSOR uint64 = 1
-	LIMIT  uint64 = 20
+	Cursor uint64 = 1
+	Limit  uint64 = 20
 )
 
 func (c *UserUserCommander) List(inputMessage *tgbotapi.Message) {
-	var cursor, limit = CURSOR, LIMIT
+	var cursor, limit = Cursor, Limit
 	var err error
 
 	argsS := inputMessage.CommandArguments()
@@ -40,7 +40,7 @@ func (c *UserUserCommander) List(inputMessage *tgbotapi.Message) {
 
 	extendedLimit := limit + 1 //to get next page start
 
-	users, err := (*c.userService).List(cursor, extendedLimit)
+	users, err := c.userService.List(cursor, extendedLimit)
 	if err != nil {
 		outputMsgText = err.Error()
 	}

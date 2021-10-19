@@ -27,7 +27,7 @@ func (c *UserUserCommander) CallbackList(callback *tgbotapi.CallbackQuery, callb
 	outputMsgText := fmt.Sprintf("Here list of users starting from %v, limit %v: \n\n", parsedData.Cursor, parsedData.Limit)
 
 	extendedLimit := parsedData.Limit + 1 //to get next page start
-	users, err := (*c.userService).List(parsedData.Cursor, extendedLimit)
+	users, err := c.userService.List(parsedData.Cursor, extendedLimit)
 	if err != nil {
 		outputMsgText = err.Error()
 	}

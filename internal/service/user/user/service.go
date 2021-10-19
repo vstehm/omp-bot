@@ -15,8 +15,8 @@ type UserService interface {
 }
 
 type DummyUserService struct {
-	lastIndex	uint64
-	mu			sync.Mutex
+	lastIndex uint64
+	mu        sync.Mutex
 }
 
 func NewDummyUserService() UserService {

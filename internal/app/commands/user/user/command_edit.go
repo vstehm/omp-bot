@@ -28,7 +28,7 @@ func (c *UserUserCommander) Edit(inputMessage *tgbotapi.Message) {
 		return
 	}
 
-	err = (*c.userService).Update(idx, userData)
+	err = c.userService.Update(idx, userData)
 	if err != nil {
 		log.Printf("fail to delete product with idx %d: %v", idx, err)
 		return

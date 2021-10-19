@@ -28,7 +28,7 @@ func (c *UserUserCommander) New(inputMessage *tgbotapi.Message) {
 	}
 
 	for _, u := range userDataSlice {
-		id, err := (*c.userService).Create(u)
+		id, err := c.userService.Create(u)
 		if err != nil {
 			log.Printf("fail to delete product with idx %d: %v", id, err)
 		}
